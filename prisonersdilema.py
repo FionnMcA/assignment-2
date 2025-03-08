@@ -37,13 +37,6 @@ tit_for_two_tats = Strategy(
     memory_size=2
 )
 
-pavlov = Strategy(
-    name='Pavlov',
-    first_move=1,
-    responses={(1,): 1, (0,): 0, (1,1): 1, (1,0): 1, (0,1): 1, (0,0): 0},
-    memory_size=2,
-)
-
 joss = Strategy(
     name='Joss',
     first_move=1,
@@ -52,12 +45,12 @@ joss = Strategy(
     random_defection=0.1
 )
 
-random = Strategy(
-    name='Random',
-    responses={(1,): random.choice([1, 0]), (0,): random.choice([1, 0])},
-    first_move= random.choice([1, 0]),
-    memory_size=1
-)
+# random = Strategy(
+#     name='Random',
+#     responses=None,
+#     first_move= random.choice([1, 0]),
+#     memory_size=1
+# )
 
 def payoff_matrix(p1_move, p2_move):
     if p1_move and p2_move:
@@ -75,13 +68,12 @@ fixed_strategies = [
     tit_for_tat,
     friedman,
     tit_for_two_tats,
-    pavlov,
     joss,
-    random
+    # random
 ]
 
 
-def prisoners_dilemma(strat1, strat2, rounds=50):
+def prisoners_dilemma(strat1, strat2, rounds=100):
     strat1_move = strat1.first_move
     strat2_move = strat2.first_move
 
@@ -98,6 +90,8 @@ def prisoners_dilemma(strat1, strat2, rounds=50):
 
         strat1_move = strat1.player_move()
         strat2_move = strat2.player_move()
+
+
 
     return score_1, score_2, strat1.history, strat2.history
 

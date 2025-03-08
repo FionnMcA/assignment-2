@@ -17,6 +17,9 @@ class Strategy():
         if len(self.history) < self.memory_size:
             return self.first_move
 
+        if  self.responses is None:
+            return random.choice([1, 0])
+
 
         if random.random() < self.random_defection: #If its a strategy that contains random defection
             return 0
@@ -31,7 +34,6 @@ class Strategy():
         self.history.append(opp_move)
         if self.hold_grudges and opp_move == 0:
             self.remain_defecting = True
-
 
     def get_name(self):
         pass

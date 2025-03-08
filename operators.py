@@ -11,7 +11,7 @@ def mutation(strategy, mutation_rate=0.5):
 
     hold_grudges = strategy.hold_grudges if random.random() > mutation_rate else not strategy.hold_grudges
 
-    random_defection = strategy.random_defection if random.random() > mutation_rate else random.choice([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+    random_defection = strategy.random_defection if random.random() > mutation_rate else random.choice([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ])
 
     return Strategy(name="", first_move=first_move, responses=response_map, memory_size=2, hold_grudges=hold_grudges, random_defection=random_defection)
 

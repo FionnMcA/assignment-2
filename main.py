@@ -4,7 +4,7 @@ from utils import init_population, select_parent
 from prisonersdilema import play_all_strategies
 
 GENERATIONS = 100
-POPULATION_SIZE = 500
+POPULATION_SIZE = 600
 MUTATION_RATE = 0.2
 CROSSOVER_RATE = 0.8
 
