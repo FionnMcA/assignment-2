@@ -6,6 +6,14 @@ def init_population(population_size):
     return [random_genome(i) for i in range(population_size)]
 
 def random_genome(name):
+
+    # first_move = 1
+    # responses = {
+    #     (1,): 1,
+    #     (0,): 1
+    # }
+    # random_strat = Strategy(name=f"Random Strategy - {name}", first_move=first_move, responses=responses, memory_size=1)
+
     first_move = random.choice([0, 1])
     hold_grudges = random.choice([True,False])
     responses = {
@@ -17,7 +25,7 @@ def random_genome(name):
         (0, 0): random.choice([0, 1]),
     }
     random_defection = random.choice([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-    random_strat = Strategy(name=f"Random Strategy - {name}", first_move=first_move, responses=responses, memory_size=1,  hold_grudges=hold_grudges, random_defection=random_defection)
+    random_strat = Strategy(name=f"Random Strategy - {name}", first_move=first_move, responses=responses, memory_size=2,  hold_grudges=hold_grudges, random_defection=random_defection)
     return random_strat
 
 def fitnesses(scores):
