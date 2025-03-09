@@ -5,7 +5,7 @@ class Strategy():
     def __init__(self, name, first_move, responses, memory_size=1, hold_grudges= False, random_defection=0, random_strategy=False, fibonacci_defection=False, reverse_fibonacci=False):
         self.name = name
         self.first_move = first_move # First move is either (1 = C, 0 = D)
-        self.responses = responses
+        self.responses = responses # Response map how the strat responds to the last move(s)
         self.history = []
         self.memory_size = memory_size
         self.hold_grudges = hold_grudges
@@ -19,6 +19,7 @@ class Strategy():
 
 
     def gen_fibonacci_numbers(self):
+        """ Retrun fibonacci numbers from within 1 to 100 range"""
         fib = {1, 2}
         a, b = 1, 2
         while b <= 100:
@@ -28,6 +29,7 @@ class Strategy():
 
 
     def player_move(self):
+        """Decide the strateies next move"""
         self.move_count += 1
 
         if len(self.history) < self.memory_size:
